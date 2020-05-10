@@ -14,6 +14,7 @@ pipeline{
              stage('Compile'){
                 agent any
                 steps{
+                    git 'https://github.com/devops-trainer/DevOpsClassCodes.git'
                     sh 'mvn compile'
                 }
                 
@@ -21,6 +22,7 @@ pipeline{
             stage('CodeReview'){
                 agent any
                 steps{
+                    git 'https://github.com/devops-trainer/DevOpsClassCodes.git'
                     sh 'mvn pmd:pmd'
                 }
                 post{
@@ -32,6 +34,7 @@ pipeline{
             stage('UnitTest'){
                 agent any
                 steps{
+                    git 'https://github.com/devops-trainer/DevOpsClassCodes.git'
                     sh 'mvn test'
                 }
                 post{
@@ -56,6 +59,7 @@ pipeline{
             stage('Package'){
                 agent any
                 steps{
+                    git 'https://github.com/devops-trainer/DevOpsClassCodes.git'
                     sh 'mvn package'
                 }
             }
